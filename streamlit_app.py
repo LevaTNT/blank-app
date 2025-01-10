@@ -6,9 +6,6 @@ conn = sqlite3.connect('data.db')
 cursor = conn.cursor()
 # Создание таблицы
 cursor.execute('''CREATE TABLE IF NOT EXISTS users (name TEXT, age INTEGER)''')
-# Вставка данных
-cursor.execute('INSERT INTO users (name, age) VALUES (?, ?)', ('Алиса', 25))
-conn.commit()
 st.title("Введите данные для ввода")
 # Текстовое поле для ввода данных
 user_input = st.text_input("Введите имя:")
