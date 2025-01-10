@@ -1,9 +1,28 @@
 import streamlit as st
 import sqlite3
 import pandas as pd
+import gspread
+from oauth2client.service_account import ServiceAccountCredentials
 
-f = open("test.txt").readlines()
-st.write(f)
+# Установление области доступа для Google Sheets и Google Drive API
+scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
+
+# Путь к файлу JSON с учетными данными
+creds = ServiceAccountCredentials.from_json_keyfile_name('nimble-bonus-343713-1fd134be8df7.json', scope)
+
+# Авторизация клиента с учетными данными
+client = gspread.authorize(creds)
+
+# Подключение к таблице по ее названию
+sheet = client.open('database_test_table').sheet1  # Используйте sheet1 для первой страницы
+
+# Чтение всех данных из таблицы
+data = sheet.get_all_records()
+
+# Преобразование данных в DataFrame для удобного отображения в Streamlit
+df2 = pd.DataFrame(data)
+st.dataframe(df)
+
 # Подключение к базе данных (или создание новой)
 conn = sqlite3.connect('data.db')
 cursor = conn.cursor()
