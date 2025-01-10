@@ -1,6 +1,11 @@
 import streamlit as st
 import sqlite3
 import pandas as pd
+import os
+
+# Определение пути к базе данных
+db_path = os.path.join(os.path.dirname(__file__), 'data.db')
+
 # Подключение к базе данных (или создание новой)
 conn = sqlite3.connect('data.db')
 cursor = conn.cursor()
