@@ -19,8 +19,10 @@ if st.button("Ввести"):
 if st.button("Вывести"):
     cursor.execute('SELECT * FROM users')
     rows = cursor.fetchall()
-    for row in rows:
-        st.write(row)
+    df = pd.DataFrame(rows, columns=['Имя', 'Возраст'])
+    st.title('База данных пользователей')
+    st.dataframe(df)  # Можно использовать st.table(df) для статической таблицы
+
         
 # Закрытие соединения
 conn.close()
