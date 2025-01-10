@@ -15,14 +15,14 @@ client = gspread.authorize(creds)
 st.write(client)
 
 # Подключение к таблице по ее названию
-#sheet = client.open('database_test_table').sheet1  # Используйте sheet1 для первой страницы
+sheet = client.open_by_url('https://docs.google.com/spreadsheets/d/165ZyfacpRoQpw7CuCymJfNgwEwMXKUGDRjIkclce4to/edit?usp=sharing').sheet1  # Используйте sheet1 для первой страницы
 
 # Чтение всех данных из таблицы
-#data = sheet.get_all_records()
+data = sheet.get_all_records()
 
 # Преобразование данных в DataFrame для удобного отображения в Streamlit
-#df2 = pd.DataFrame(data)
-#st.dataframe(df)
+df2 = pd.DataFrame(data)
+st.dataframe(df)
 
 # Подключение к базе данных (или создание новой)
 conn = sqlite3.connect('data.db')
