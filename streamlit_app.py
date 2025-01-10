@@ -34,7 +34,7 @@ conn.commit()
 cursor.execute('SELECT * FROM users')
 rows = cursor.fetchall()
 for row in rows:
-    print(row)
+    st.write(row)
 
 # Закрытие соединения
 conn.close()
