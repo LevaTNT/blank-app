@@ -14,14 +14,14 @@ creds = ServiceAccountCredentials.from_json_keyfile_name('nimble-bonus-343713-1f
 client = gspread.authorize(creds)
 
 # Подключение к таблице по ее названию
-sheet = client.open('database_test_table').sheet1  # Используйте sheet1 для первой страницы
+#sheet = client.open('database_test_table').sheet1  # Используйте sheet1 для первой страницы
 
 # Чтение всех данных из таблицы
-data = sheet.get_all_records()
+#data = sheet.get_all_records()
 
 # Преобразование данных в DataFrame для удобного отображения в Streamlit
-df2 = pd.DataFrame(data)
-st.dataframe(df)
+#df2 = pd.DataFrame(data)
+#st.dataframe(df)
 
 # Подключение к базе данных (или создание новой)
 conn = sqlite3.connect('data.db')
