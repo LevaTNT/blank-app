@@ -1,5 +1,6 @@
 import streamlit as st
 import sqlite3
+import pandas as pd
 # Подключение к базе данных (или создание новой)
 conn = sqlite3.connect('data.db')
 cursor = conn.cursor()
