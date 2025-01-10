@@ -12,6 +12,7 @@ creds = ServiceAccountCredentials.from_json_keyfile_name('nimble-bonus-343713-1f
 
 # Авторизация клиента с учетными данными
 client = gspread.authorize(creds)
+st.write(client)
 
 # Подключение к таблице по ее названию
 #sheet = client.open('database_test_table').sheet1  # Используйте sheet1 для первой страницы
